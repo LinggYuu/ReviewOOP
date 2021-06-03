@@ -8,9 +8,9 @@ public class test {
 //        ap.eat();
         Person ap2 = new Person("lingyu",22,false);
 //        ap2.eat();
-        System.out.println(ap.name+"的HP为:"+ap.HP);
-        ap.HP-=20;
-        System.out.println(ap2.name+"的HP为:"+ap2.HP);
-
+        System.out.println(ap.name+"的HP为:"+ Person.HP);
+        Person.HP -=20;
+        System.out.println(ap2.name+"的HP为:"+Person.HP);
+        System.out.println("hhhh");
     }
 }
