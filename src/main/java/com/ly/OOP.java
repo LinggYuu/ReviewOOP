@@ -15,7 +15,6 @@ public class OOP {
         System.out.println(max);
         Array aa =new Array();
         aa.a= new int[]{3, 4,42,321,22,3321,4311};
-
         System.out.println(util.getMax(aa.a));
     }
 }
