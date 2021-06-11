@@ -31,16 +31,34 @@ public class Woman extends Person{
 }
 
 
+class Man extends Person{
+
+}
+
+
 class test{
     public static void main(String[] args) {
-        Woman woman = new Woman();
-        woman.eat(9);
         Person ap = new Woman();
-        ap.sleep();
-        ap.shit();
-        ((Woman) ap).Shopping();
-        ((Woman) ap).isBeautiful=true;
-        System.out.println(ap.id);
-        System.out.println( ((Woman) ap).id);
+//        ap.Shopping();  无法调用子类特有的方法
+//        ap.isBeautiful; 和属性
+//        Man man = (Man)ap; 转男的失败，因为它在声明时就是个女的
+
+        System.out.println(ap instanceof Woman);
+        System.out.println(ap instanceof Man);
+        System.out.println(ap instanceof Person);
+        System.out.println("*****************************************");
+        Woman woman = (Woman)ap;//转女的成功
+
+        System.out.println(ap instanceof Woman);
+        System.out.println(ap instanceof Man);
+        System.out.println(ap instanceof Person);
+        System.out.println(ap instanceof Object);
+        woman.Shopping();
+
+
+//        Woman woman = null;
+//        boolean t = ap instanceof Man;
+//        System.out.println(t);
+
     }
 }

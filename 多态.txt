@@ -21,6 +21,7 @@
 6.多态的好处举例:
         工厂或
         p278
+        JDBC
         class Driver{
             public void doData(Connection conn){
                 conn 可能是 new MySQLConnection  可能是 new OracleConnection
@@ -43,9 +44,39 @@
 Person e = new Student();
 e.getInfo();
 编译时类型和运行时类型
+    在new的时候其实把Person和Student类中的东西都造了，但是因为左边声明的是Person类型所以只能调Person中有的
+    不能调Student类（子类）特有的。除非向下转型
+    有了对象的多态性以后，内存中实际加载了子类特有的属性和方法，但由于变量声明为父类类型，导致编译时只能调用父类
+    中声明的属性和方法，子类特有的属性和方法不能调用
     编译时e为Person类型,而方法的调用是在运行时确定的,所以调用的是student类的getInfo方法---动态绑定
-
-
 多态是运行时行为
 
 
+
+有了对象的多态性以后,内存中实际是加载了子类特有的属性和方法,但由于变量声明为父类类型,导致编译时只能识别
+父类中声明的属性和方法,子类特有的属性和方法不能调用
+    如何才能调用子类特有的属性和方法?
+        使用强制类型转换符号(向下转型)
+        Person p = new Woman();（转换时需要在转换的类型在声明时就是其子类类型）
+        Woman m1 = (Woman) p;
+        强转有风险,可能会出现ClassCastException异常
+        判断被强转的对象本质上是什么
+        e instanceof Student
+
+instance of 操作符 p285
+    a instanceof A 检验a是否为类A的对象,返回值为boolean类型
+    如果a instanceof A返回true，则 a instanceof B也返回true
+    其中B一定是A的父类
+
+妖路子：
+    Object obj  =  new Woman();
+    Person p  = (Person)obj;
+
+    我的理解：强转的前提就是new的那个必须包括强转的那个类的东西
+    如上面就可以转而下面就报错
+        Person p = new Person();
+        Man m = (Man)p;
+        //编译通过运行时不通过
+        这个是不行的，因为在声明时new的Person就压根没有Man的东西
+
+        Man m = new Woman();//编译时就不通过
