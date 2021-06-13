@@ -1,0 +1,26 @@
+toString()方法在Object类中的定义，其返回值是String类型，返回类名和它的引用地址
+
+在进行String与其他类型数据的连接操作时，自动调用toString方法
+    Date now = new Date();
+    System.out.println("now="+now);
+    相当于
+    System.out.println("now="+now.toString());
+
+可以根据需要在用户自定义类型中重写toString方法
+如果String类重写了toString方法，则返回字符串的值
+    s1="hello";
+    System.out.println(s1);相当于System.out.println(s1.toString());
+
+基本类型数据转换为String类型时，调用了对应包装类的toString方法
+    int a=10; System.out.println("a="+a);
+
+Object类中toString()的使用
+    1.当我们输出一个对象的引用时，实际上就是调用当前对象的toString()
+
+    2.Object类中toString的定义
+        public String toString(){
+            return getClass.getName()+"@"+Integer.toHexString(hashCode());
+        }
+
+
+    p299

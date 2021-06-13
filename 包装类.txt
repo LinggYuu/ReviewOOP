@@ -1,0 +1,44 @@
+针对八种基本数据类型定义相应的引用类型--包装类(封装类)
+有了类的特点，就可以调用类中的方法，java才是真正的面向对象
+
+    基本数据类型              包装类
+     byte                    Byte
+     short                   Short
+     int                     Integer
+     long                    Long
+     float                   Float
+     double                  Double
+     boolean                 Boolean
+     char                    Character
+
+     默认值为null
+     其中doubue以上的包装类(封装类)，其父类都是Number
+
+包装类的使用：
+    1.java提供了8种基本数据类型对应的包装类
+    2.需掌握：基本数据类型、包装类、String三者的相互转换  p303
+
+    5.0之前，不太用了
+
+    包装类----->基本数据类型：
+        调用包装类Xxx的xxxValue()
+    Float f1 = new Float(12.3);
+    f1.floatValue();
+
+p303 test3
+
+    5.0之后????????????????????????
+
+    自动装箱     基本数据类型----->包装类
+        int num2 = 10;
+        Integer in1  = num; 直接赋给in1，num自动装箱了，不用再new Integer(num)
+
+    自动拆箱     包装类----->基本数据类型
+        int num3 = in1;    直接把一个包装类对象赋给一个基本数据类型
+
+
+    基本数据类型、包装类----->String类型：
+        调用String重载的ValueOf(Xxx xxx)
+
+    String类型----->基本数据类型、包装类：
+        调用包装类的parseXxx()    //test5
