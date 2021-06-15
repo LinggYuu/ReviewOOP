@@ -11,8 +11,12 @@ public class AbstractTest {
     }
 }
 
+abstract class Creature{
+    public abstract void breath();
+}
 
-abstract class Person{
+
+abstract class Person extends Creature{
     String name;
     int age;
 
@@ -30,11 +34,7 @@ abstract class Person{
 
     public abstract void walk();
 }
-class ss{
-    public abstract void sss(){
 
-    }
-}
 
 
 class Student extends Person{
@@ -64,6 +64,11 @@ class Student extends Person{
     public void walk() {
         System.out.println("学生走路");
     }
+
+    @Override
+    public void breath() {
+        System.out.println("学生呼吸");
+    }
 }
 
 class Teacher extends Person{
@@ -81,5 +86,10 @@ class Teacher extends Person{
     @Override
     public void walk() {
         System.out.println("老师走路");
+    }
+
+    @Override
+    public void breath() {
+        System.out.println("老师呼吸");
     }
 }
